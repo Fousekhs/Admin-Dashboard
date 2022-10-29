@@ -1,3 +1,26 @@
-body {
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    grid-template: 20% 1fr / 20% 1fr;
+    min-height: 100vh;
+
+}
+
+.sidebar {
     background-color: aqua;
+    grid-area: 1 / 1 / -1 / 2;
+}
+
+header {
+    background-color: white;
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+main {
+    background-color: gray;
+    grid-area: 2 / 2 / 3 / 3;
 }
