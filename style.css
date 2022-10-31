@@ -1,6 +1,15 @@
+:root {
+    --background-grey: #EEEEEE;
+    --shadow-grey: #CCCCCC;
+    --light-grey: #8D8D84;
+    --dark-grey: #6D6D64;
+    --dark-yellow: rgb(255, 204, 0);
+}
+
 * {
     padding: 0;
     margin: 0;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .container {
@@ -11,16 +20,222 @@
 }
 
 .sidebar {
-    background-color: aqua;
+    font-size: 1.6rem;
+    min-width: 28.8rem;
+    background-color: olive;
+    color: white;
     grid-area: 1 / 1 / -1 / 2;
+    display: grid;
+    grid-template: 4rem 12.8rem 6.4rem / 1fr;
+    padding: 20px;
+    row-gap: 3rem;
+    align-items: center;
+}
+
+.sidebar h2 {
+    font-size: 2rem;
+}
+
+svg {
+    position: relative;
+    top: .125em;
+    height: 1em;
+    width: 1em;
+}
+
+menu li {
+    transition-duration: .4s;
+    list-style-type: none;
+}
+
+menu li:hover {
+    transform: scale(1.2);
+    transform-origin: left top;
 }
 
 header {
     background-color: white;
     grid-area: 1 / 2 / 2 / 3;
+    box-shadow: 0px 2px 4px var(--shadow-grey);
+    display: grid;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    grid-template: 40% 1fr / 1fr 30%;
+    column-gap: 20px
+}
+
+.searchbar {
+    padding: 10px;
+}
+
+input[type="search"] {
+    font-size: 1.2rem;
+    height: 2rem;
+    border-radius: 15px;
+    padding-left: 2.4rem;
+    padding-right: 1.2rem;
+    width: min(100%, 720px);
+    background-color: var(--background-grey);
+    border: none;
+    margin: auto;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btns button {
+    background-color: olive;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    height: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    transition-duration: .4s;
+}
+
+.btns button:hover {
+    background-color: var(--dark-yellow);
+}
+
+.greeting {
+    display: grid;
+    grid-template: 1.5rem 1fr / 1fr;
+}
+
+.greet {
+    color: var(--light-grey);
+}
+
+.name {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.userInfo {
+    display: flex;
+    justify-content: end;
+    gap: 3rem;
+    font-weight: bold;
+    align-items: center;
 }
 
 main {
-    background-color: gray;
+    background-color: var(--background-grey);
     grid-area: 2 / 2 / 3 / 3;
+
+    display: grid;
+    grid-template: 1fr 1fr / 3fr 1fr;
+    padding: 2rem;
+    gap: 20px;
+}
+
+
+section{
+    grid-area: 1 / 1/ -1 / 2;
+    display: grid;
+    grid-template: 1.2rem repeat(3, 1fr) / repeat(2, 1fr);
+    gap: 20px;
+}
+
+section::before {
+    content: "Projects";
+    grid-area: 1 / 1 / 2 / -1;
+}
+
+section .item {
+    background-color: white;
+    border-radius: 7px;
+    border-left: 0.5rem solid var(--dark-yellow);
+    transition-duration: .3s;
+    box-shadow: 1px 1px 3px var(--shadow-grey);
+    display: flexbox;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+}
+
+section .item:hover {
+    border-left: 0.5rem solid olive;
+    transform: scale(1.05);
+}
+
+.item div:first-child {
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.item div:last-child {
+    color: var(--light-grey);
+}
+
+
+aside {
+    display: grid;
+    grid-template: 1.2rem 1fr / 1fr;
+    gap: 20px;
+}
+
+.announcements::before {
+    content: "Announcements";
+}
+
+
+.trending::before {
+    content: "Trending";
+}
+
+.items {
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 1px 1px 3px var(--shadow-grey);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+}
+
+.announcements .items {
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+}
+
+.trending .items {
+    display: grid;
+    grid-template: repeat(4, 1fr) / 1fr;
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+}
+
+.items .item div:first-child {
+    font-size: 0.9rem;
+}
+
+.items .item div:last-child {
+    font-size: 0.7rem;
+}
+
+.announcements div:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.announcements .item:not(:first-child) {
+    border-top: .7px solid var(--light-grey);
+}
+
+.item {
+    padding: .5rem;
 }
