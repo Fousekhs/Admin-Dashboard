@@ -4,6 +4,7 @@
     --light-grey: #8D8D84;
     --dark-grey: #6D6D64;
     --dark-yellow: rgb(255, 204, 0);
+    --highlight-yellow: rgba(255, 204, 0, 0.3);
 }
 
 * {
@@ -27,13 +28,14 @@
     grid-area: 1 / 1 / -1 / 2;
     display: grid;
     grid-template: 4rem 12.8rem 6.4rem / 1fr;
-    padding: 20px;
     row-gap: 3rem;
     align-items: center;
+    padding-top: 20px;
 }
 
 .sidebar h2 {
     font-size: 2rem;
+    padding-left: 2rem;
 }
 
 svg {
@@ -46,11 +48,12 @@ svg {
 menu li {
     transition-duration: .4s;
     list-style-type: none;
+    padding-left: 2rem;
 }
 
 menu li:hover {
-    transform: scale(1.2);
-    transform-origin: left top;
+    border-left: 4px solid var(--dark-yellow);
+    background-color: var(--highlight-yellow);
 }
 
 header {
@@ -68,18 +71,33 @@ header {
 
 .searchbar {
     padding: 10px;
+    display: flex;
+    align-items: center;
 }
 
 input[type="search"] {
     font-size: 1.2rem;
     height: 2rem;
-    border-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    border: none;
+    border-right: 1px solid var(--dark-grey);
     padding-left: 2.4rem;
     padding-right: 1.2rem;
     width: min(100%, 720px);
     background-color: var(--background-grey);
-    border: none;
     margin: auto;
+}
+
+input[type="image"] {
+    height: 2rem;
+    width: 2rem;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: var(--background-grey);
+    flex-grow: 0;
+    padding-left: .9rem;
+    padding-right: 1.2rem;
 }
 
 .btns {
